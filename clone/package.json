@@ -1,0 +1,23 @@
+{
+  "name": "eslink-cli-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:prod": "eslink build prod vue",
+    "build:test": "eslink build test vue",
+    "start": "eslink start vue",
+    "update": "auto-vers -t"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+			 "axios": "^0.20.0",
+    "vue": "^2.6.11",
+    "eslint-plugin-vue": "^6.1.2",
+    "eslint": "^7.7.0"
+  },
+  "devDependencies": {
+    "auto-vers": "^1.0.3"
+  }
+}
