@@ -1,16 +1,16 @@
 'use strict'
-const path = require('path')
-const merge = require('webpack-merge')
-const HTMLPlugin = require('html-webpack-plugin')
-const base = require('./webpack.base.config')
-const webpack = require('webpack')
-const config = require('./eslink.config')
-const GLOBALS_ENV = require('../../utils/env')
-const {GLOBALS, env} = GLOBALS_ENV('production')
-const node_modules = path.resolve(__dirname, '../../../node_modules')
-let pkg = require(path.join(process.cwd(), './package.json'))
+const path = require ('path')
+const merge = require ('webpack-merge')
+const HTMLPlugin = require ('html-webpack-plugin')
+const base = require ('./webpack.base.config')
+const webpack = require ('webpack')
+const config = require ('./eslink.config')
+const GLOBALS_ENV = require ('../../utils/env')
+const { GLOBALS, env } = GLOBALS_ENV ('production')
+const node_modules = path.resolve (__dirname, '../../../node_modules')
+let pkg = require (path.join (process.cwd (), './package.json'))
 
-module.exports = merge(base, {
+module.exports = merge (base, {
 	output: {
 		path: config.prod.path,
 		filename: config.prod.filename,
@@ -63,11 +63,11 @@ module.exports = merge(base, {
 		]
 	},
 	plugins: [
-		new HTMLPlugin(
+		new HTMLPlugin (
 			{
 				favicon: config.favicon,
 				template: config.prod.template,
-				filename: path.join(process.cwd(), `./dist/${pkg.name}/prod/index.html`),
+				filename: path.join (process.cwd (), `./dist/${pkg.name}/prod/index.html`),
 				title: pkg.name,
 				env,
 				chunks: {
@@ -75,6 +75,6 @@ module.exports = merge(base, {
 				}
 			}
 		),
-		new webpack.DefinePlugin(GLOBALS),
+		new webpack.DefinePlugin (GLOBALS)
 	]
 })

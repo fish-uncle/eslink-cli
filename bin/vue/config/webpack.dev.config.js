@@ -1,16 +1,16 @@
 'use strict'
-const webpack = require('webpack')
-const HTMLPlugin = require('html-webpack-plugin')
-const path = require('path')
-const merge = require('webpack-merge')
-const base = require('./webpack.base.config')
-const config = require('./eslink.config')
-const GLOBALS_ENV = require('../../utils/env')
-const {GLOBALS, env} = GLOBALS_ENV('development')
-const node_modules = path.resolve(__dirname, '../../../node_modules')
-let pkg = require(path.join(process.cwd(), './package.json'))
+const webpack = require ('webpack')
+const HTMLPlugin = require ('html-webpack-plugin')
+const path = require ('path')
+const merge = require ('webpack-merge')
+const base = require ('./webpack.base.config')
+const config = require ('./eslink.config')
+const GLOBALS_ENV = require ('../../utils/env')
+const { GLOBALS, env } = GLOBALS_ENV ('development')
+const node_modules = path.resolve (__dirname, '../../../node_modules')
+let pkg = require (path.join (process.cwd (), './package.json'))
 
-module.exports = merge(base, {
+module.exports = merge (base, {
 	entry: [
 		`${node_modules}/webpack-hot-middleware/client?noInfo=true&reload=true`,
 	],
@@ -73,13 +73,13 @@ module.exports = merge(base, {
 		]
 	},
 	plugins: [
-		new webpack.LoaderOptionsPlugin({
+		new webpack.LoaderOptionsPlugin ({
 			options: {
 				productionGzip: true,
 				productionGzipExtensions: ['js', 'css']
 			}
 		}),
-		new HTMLPlugin(
+		new HTMLPlugin (
 			{
 				favicon: config.favicon,
 				template: config.dev.template,
@@ -88,7 +88,7 @@ module.exports = merge(base, {
 				env,
 			}
 		),
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.DefinePlugin(GLOBALS),
+		new webpack.HotModuleReplacementPlugin (),
+		new webpack.DefinePlugin (GLOBALS)
 	]
 })

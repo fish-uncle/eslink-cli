@@ -3,13 +3,13 @@
 // Vue.config.productionTip = false;
 // new Vue({
 //   render: h => h(App)
-// }).$mount("#root");
+// }).$mount('#root');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from "./registerServiceWorker";
+import registerServiceWorker from './registerServiceWorker';
 import {AppContainer} from 'react-hot-loader';
-import Root from "./react";
+import Root from './react';
 import 'react-hot-loader/patch';
 
 const render = Component => ReactDOM.render(

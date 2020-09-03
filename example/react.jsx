@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {hot} from 'react-hot-loader/root';
 
 function MyCard() {
-  const [state, setState] = useState({text: "", checked: false});
+  const [state, setState] = useState({text: '', checked: false});
   const updateState = partialState => setState(oldState => ({
     ...oldState,
     ...partialState
