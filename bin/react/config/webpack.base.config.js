@@ -58,25 +58,25 @@ module.exports = {
 			{
 				test: /\.js|jsx$/,
 				exclude: /(node_modules|bower_components)/,
-				loader: `${node_modules}babel-loader`,
+				loader: `${node_modules}/babel-loader`,
 				options: { presets: config.babelPresets, plugins: config.babelPlugins }
 			},
 			{
-				test: /\.css$/, use: [`${node_modules}vue-style-loader`, `${node_modules}style-loader`, {
-					loader: `${node_modules}css-loader`,
+				test: /\.css$/, use: [`${node_modules}/vue-style-loader`, `${node_modules}/style-loader`, {
+					loader: `${node_modules}/css-loader`,
 				}, {
-					loader: `${node_modules}postcss-loader`,
+					loader: `${node_modules}/postcss-loader`,
 					options: { plugins: config.postCssPlugins }
 				}]
 			},
 			{
-				test: /\.less$/, use: [`${node_modules}style-loader`, {
-					loader: `${node_modules}css-loader`,
+				test: /\.less$/, use: [`${node_modules}/style-loader`, {
+					loader: `${node_modules}/css-loader`,
 				}, {
-					loader: `${node_modules}postcss-loader`,
+					loader: `${node_modules}/postcss-loader`,
 					options: { plugins: config.postCssPlugins }
 				}, {
-					loader: `${node_modules}less-loader`,
+					loader: `${node_modules}/less-loader`,
 					options: {
 						modifyVars: config.modifyVars,
 						javascriptEnabled: true,

@@ -38,7 +38,7 @@ module.exports = merge (base, {
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'url-loader',
+					loader: `${node_modules}/url-loader`,
 					options: {
 						limit: 10000,
 						esModule: false,
@@ -52,7 +52,7 @@ module.exports = merge (base, {
 				test: /\.(mp3|mp4)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'url-loader',
+					loader: `${node_modules}/url-loader`,
 					options: {
 						name: `medias/[path][name].[ext]?v=[hash:7]`,
 						publicPath: `./${env === 'production' ? `prod` : 'test'}/${pkg.version}/`,
@@ -63,7 +63,7 @@ module.exports = merge (base, {
 			{
 				test: /\.(ttf|svg|woff|woff2|eot|svg)$/,
 				use: {
-					loader: 'url-loader',
+					loader: `${node_modules}/url-loader`,
 					options: {
 						name: `fonts/[path][name].[ext]?v=[hash:7]`,
 						publicPath: `./${env === 'production' ? `prod` : 'test'}/${pkg.version}/`,

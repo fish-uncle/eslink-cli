@@ -1,6 +1,6 @@
 {
   "name": "eslink-cli",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "cli工具",
   "main": "bin/index.js",
   "keywords": [
