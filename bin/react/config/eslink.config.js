@@ -21,7 +21,6 @@ let config = {
 	host,
 	port: 3000,
 	proxy: {},
-	cssModules: false,
 	favicon: path.join (__dirname, '../../../favicon.ico'),
 	dev: {
 		filename: `${pkg.version}/js/[name].js?v=[hash:7]`,
