@@ -8,7 +8,6 @@ let pkg = require (path.join (process.cwd (), './package.json'))
 
 let config = {
 	alias: {},
-	favicon: path.join (__dirname, '../../../favicon.ico'),
 	webpackPlugin: [],
 	rules: [],
 	entry: path.join (process.cwd (), './src/index.js'),
@@ -21,6 +20,8 @@ let config = {
 	modifyVars: {},
 	host,
 	port: 3000,
+	proxy: {},
+	favicon: path.join (__dirname, '../../../favicon.ico'),
 	dev: {
 		filename: `${pkg.version}/js/[name].js?v=[hash:7]`,
 		path: path.join (process.cwd (), `./dist/${pkg.name}/test`),

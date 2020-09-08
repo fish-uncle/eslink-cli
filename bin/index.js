@@ -12,7 +12,7 @@ const cli = yargs
         require('./react/build/start')()
         break
       default:
-        chalkWarning('Dou you want `fish start vue` or `fish start react` ?')
+        chalkWarning('Dou you want `eslink start vue` or `eslink start react` ?')
     }
   })
   .command('build env type', '打包服务', (yargs) => {
