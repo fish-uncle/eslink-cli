@@ -3,5 +3,4 @@ dist
 example
 .idea
 .cosCache
-eslink.config.js
 tsconfig.json

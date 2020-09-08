@@ -86,6 +86,21 @@ module.exports = {
 					}
 				} ]
 			},
+			{
+				test: /\.module\.less$/, use: [ `${node_modules}/style-loader`, {
+					loader: `${node_modules}/css-loader`,
+					options: { modules: config.cssModules }
+				}, {
+					loader: `${node_modules}/postcss-loader`,
+					options: { plugins: config.postCssPlugins }
+				}, {
+					loader: `${node_modules}/less-loader`,
+					options: {
+						modifyVars: config.modifyVars,
+						javascriptEnabled: true,
+					}
+				} ]
+			},
 			...config.rules
 		]
 	},

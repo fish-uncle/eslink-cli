@@ -5,7 +5,7 @@ const config = require ('./eslink.config')
 const node_modules = path.resolve (__dirname, '../../../node_modules')
 
 module.exports = {
-	entry: [config.entry],
+	entry: [ config.entry ],
 	optimization: {
 		runtimeChunk: {
 			name: 'manifest'
@@ -30,7 +30,7 @@ module.exports = {
 		}
 	},
 	resolve: {
-		extensions: ['.js', '.vue', '.json', 'jsx'],
+		extensions: [ '.js', '.vue', '.json', 'jsx' ],
 		alias: {
 			'@': path.join (process.cwd (), './', 'src'),
 			'_': path.join (process.cwd (), './'),
@@ -65,11 +65,11 @@ module.exports = {
 			},
 			{
 				test: /\.md$/,
-				loader: [`${node_modules}/html-loader`, `${node_modules}/markdown-loader`],
+				loader: [ `${node_modules}/html-loader`, `${node_modules}/markdown-loader` ],
 			},
 			{
 				test: /\.vue$/,
-				loader: [`${node_modules}/vue-loader`],
+				loader: [ `${node_modules}/vue-loader` ],
 			},
 			{
 				test: /\.js|jsx$/,
@@ -78,15 +78,15 @@ module.exports = {
 				options: { presets: config.babelPresets, plugins: config.babelPlugins }
 			},
 			{
-				test: /\.css$/, use: [`${node_modules}/vue-style-loader`, `${node_modules}/style-loader`, {
+				test: /\.css$/, use: [ `${node_modules}/vue-style-loader`, `${node_modules}/style-loader`, {
 					loader: `${node_modules}/css-loader`,
 				}, {
 					loader: `${node_modules}/postcss-loader`,
 					options: { plugins: config.postCssPlugins }
-				}]
+				} ]
 			},
 			{
-				test: /\.less$/, use: [`${node_modules}/style-loader`, {
+				test: /\.less$/, use: [ `${node_modules}/style-loader`, {
 					loader: `${node_modules}/css-loader`,
 				}, {
 					loader: `${node_modules}/postcss-loader`,
@@ -97,7 +97,22 @@ module.exports = {
 						modifyVars: config.modifyVars,
 						javascriptEnabled: true,
 					}
-				}]
+				} ]
+			},
+			{
+				test: /\.module\.less$/, use: [ `${node_modules}/style-loader`, {
+					loader: `${node_modules}/css-loader`,
+					options: { modules: config.cssModules }
+				}, {
+					loader: `${node_modules}/postcss-loader`,
+					options: { plugins: config.postCssPlugins }
+				}, {
+					loader: `${node_modules}/less-loader`,
+					options: {
+						modifyVars: config.modifyVars,
+						javascriptEnabled: true,
+					}
+				} ]
 			},
 			...config.rules
 		]

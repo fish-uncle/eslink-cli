@@ -60,7 +60,7 @@ module.exports = merge (base, {
 				},
 			},
 			{
-				test: /\.(ttf|svg|woff|woff2|eot|svg)$/,
+				test: /\.(ttf|woff|woff2|eot)$/,
 				use: {
 					loader: `${node_modules}/url-loader`,
 					options: {
