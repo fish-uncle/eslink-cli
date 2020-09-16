@@ -17,9 +17,6 @@
 	},
 	"author": "fish uncle",
 	"license": "MIT",
-	"publishConfig": {
-		"registry": "https://npm.shenzhepei.com"
-	},
 	"engines": {
 		"node": ">=12.14.1"
 	},
