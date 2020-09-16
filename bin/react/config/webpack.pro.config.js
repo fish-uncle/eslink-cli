@@ -1,80 +1,28 @@
 'use strict'
-const path = require ('path')
 const merge = require ('webpack-merge')
-const HTMLPlugin = require ('html-webpack-plugin')
 const base = require ('./webpack.base.config')
 const webpack = require ('webpack')
-const config = require ('./eslink.config')
+const config = require ('../../../config/react.config')
 const GLOBALS_ENV = require ('../../utils/env')
-const { GLOBALS, env } = GLOBALS_ENV ('production')
-const node_modules = path.resolve (__dirname, '../../../node_modules')
-let pkg = require (path.join (process.cwd (), './package.json'))
+const env = 'production'
+const { GLOBALS } = GLOBALS_ENV (env)
+const urlRules = require ('../../../config/rules/urlRules')
+const HTMLPlugin = require ('../../../config/HTMLPlugin')
+const output = require ('../../../config/output')
 
 module.exports = merge (base, {
-	output: {
-		path: config.prod.path,
-		filename: config.prod.filename,
-		publicPath: config.prod.publicPath,
-		chunkFilename: config.prod.chunkFilename
-	},
-	mode: 'production',
-	performance: {
-		hints: false
-	},
-	module: {
-		rules: [
-			{
-				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-				exclude: /node_modules/,
-				use: {
-					loader: `${node_modules}/url-loader`,
-					options: {
-						limit: 10000,
-						esModule: false,
-						name: `imgs/[path][name].[ext]?v=[hash:7]`,
-						publicPath: `./${pkg.version}/`,
-						outputPath: `./${pkg.version}/`
-					}
-				},
-			},
-			{
-				test: /\.(mp3|mp4)$/,
-				exclude: /node_modules/,
-				use: {
-					loader: `${node_modules}/url-loader`,
-					options: {
-						name: `medias/[path][name].[ext]?v=[hash:7]`,
-						publicPath: `./${pkg.version}/`,
-						outputPath: `./${pkg.version}/`
-					}
-				},
-			},
-			{
-				test: /\.(ttf|woff|woff2|eot)$/,
-				use: {
-					loader: `${node_modules}/url-loader`,
-					options: {
-						name: `fonts/[path][name].[ext]?v=[hash:7]`,
-						publicPath: `./${pkg.version}/`,
-						outputPath: `./${pkg.version}/`
-					}
-				},
-			}
-		]
-	},
-	plugins: [
-		new HTMLPlugin (
-			{
-				favicon: config.favicon,
-				template: config.prod.template,
-				filename: path.join (process.cwd (), `./dist/${pkg.name}/prod/index.html`),
-				title: pkg.name,
-				env,
-				chunks: {
-					head: 'index'
-				}
-			}
-		),
-		new webpack.DefinePlugin (GLOBALS),
-	]
+  output: output ('react', env),
+  mode: env,
+  performance: {
+    hints: false
+  },
+  module: {
+    rules: [
+      ...urlRules (env)
+    ]
+  },
+  plugins: [
+    HTMLPlugin ('vue', env),
+    new webpack.DefinePlugin (GLOBALS),
+  ]
 })

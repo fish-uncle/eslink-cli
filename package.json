@@ -1,6 +1,6 @@
 {
 	"name": "eslink-cli",
-	"version": "1.1.7",
+	"version": "1.1.8",
 	"description": "cli工具",
 	"main": "bin/index.js",
 	"keywords": [
@@ -9,14 +9,16 @@
 		"react",
 		"jsx"
 	],
-	"scripts": {},
+	"scripts": {
+		"build": "babel index.js -o index.min.js"
+	},
 	"bin": {
-		"eslink": "bin/index.js"
+		"fish": "bin/index.js"
 	},
 	"author": "fish uncle",
 	"license": "MIT",
 	"publishConfig": {
-		"registry": "http://registry.npmjs.org"
+		"registry": "https://npm.shenzhepei.com"
 	},
 	"engines": {
 		"node": ">=12.14.1"
@@ -42,6 +44,7 @@
 		"@babel/plugin-transform-runtime": "^7.4.0",
 		"@babel/preset-env": "^7.4.2",
 		"@babel/preset-react": "^7.8.3",
+		"@babel/preset-typescript": "^7.10.4",
 		"@babel/runtime": "^7.6.3",
 		"@types/react": "^16.9.49",
 		"@types/react-dom": "^16.9.8",
@@ -53,14 +56,15 @@
 		"babel-loader": "^8.0.6",
 		"browser-sync": "^2.26.7",
 		"connect-history-api-fallback": "^1.6.0",
+		"cos-nodejs-sdk-v5": "^2.5.14",
 		"css-loader": "^3.4.2",
 		"cssnano": "^4.1.10",
 		"dot-prop": "^5.2.0",
 		"elliptic": "^6.5.3",
-		"eslint": "^7.7.0",
+		"eslint": "^6.8.0",
 		"eslint-friendly-formatter": "^4.0.1",
-		"eslint-loader": "^3.0.3",
-		"eslint-plugin-vue": "^6.1.2",
+		"eslint-loader": "^3.0.4",
+		"eslint-plugin-vue": "^6.2.2",
 		"file-loader": "^5.0.2",
 		"gulp": "^4.0.2",
 		"html-loader": "^1.1.0",
@@ -74,6 +78,7 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-hot-loader": "^4.12.20",
+		"single-line-log": "^1.1.2",
 		"style-loader": "^1.1.2",
 		"typescript": "^4.0.2",
 		"url-loader": "^3.0.0",
