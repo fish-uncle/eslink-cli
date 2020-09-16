@@ -1,6 +1,6 @@
 {
 	"name": "eslink-cli",
-	"version": "1.1.8",
+	"version": "1.1.9",
 	"description": "cli工具",
 	"main": "bin/index.js",
 	"keywords": [
@@ -13,7 +13,7 @@
 		"build": "babel index.js -o index.min.js"
 	},
 	"bin": {
-		"fish": "bin/index.js"
+		"eslink": "bin/index.js"
 	},
 	"author": "fish uncle",
 	"license": "MIT",
